@@ -7,7 +7,7 @@ import java.awt.Color;
  * Class representando uma carta de um baralho
  * @author Heitor e Ivan
  * */
-public class Carta {
+public class Carta implements Comparable<Carta>{
 
 	/**Valor da carta*/
 	private int valor;
@@ -93,6 +93,13 @@ public class Carta {
 			str += " "+naipe.name();
 			return str;
 		}
+	}
+
+	@Override
+	public int compareTo(Carta o) {
+		if (this.valor == o.getValor()) return 0;
+		if (this.valor > o.getValor()) return 1;
+		else return -1;
 	}
 	
 }

@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.Stack;
 
 import util.Carta;
@@ -20,8 +21,13 @@ public abstract class Pilha {
 	protected abstract boolean verificarCarta(Carta carta);
 	
 	/**Inserir carta na pilha.*/
-	private void inserirCarta(Carta carta) {
+	public void inserirCarta(Carta carta) {
 		cartas.push(carta);
+	}
+	
+	/**Inserir cartas na pilha.*/
+	public void inserirCartas (ArrayList<Carta> cartas) {
+		this.cartas.addAll(cartas);
 	}
 	
 	/**Recebe uma carta para ser colocada ou não na pilha. 
@@ -34,6 +40,25 @@ public abstract class Pilha {
 			return true;
 		}
 		return false;
+	}
+	
+	/**Recebe uma coleção de cartas para serem colocadas ou não na pilha. 
+	 * Depende da verificação de cada tipo de Pilha.
+	 * @param cartas		Cartsa que querem ser inseridas
+	 * @return Booleano representando se as cartas foram inseridas*/
+	public boolean receberCartas(ArrayList<Carta> cartas) {
+		
+		if (cartas == null || cartas.size() <= 0 ) return false;
+		
+		for (int i = 0; i < cartas.size(); i++){
+			if (verificarCarta(cartas.get(i))) {
+				inserirCarta(cartas.get(i));
+			}else {
+				while (i-- > 0) puxarCartaTopo();
+				return false;
+			}
+		}
+		return true;
 	}
 	
 	
@@ -50,6 +75,32 @@ public abstract class Pilha {
 	public Carta puxarCartaTopo() {
 		if (!isEmpty()) return  cartas.pop();
 		else return null;
+	}
+	
+	private Carta getCartaByValor(int valor) {
+		for (Carta carta: cartas) {
+			if (carta.getValor() == valor) return carta;
+		}
+		return null;
+	}
+	
+	/**Puxa todas as cartas acima de uma carta de valor passado como parâmetro.
+	 * @param valor		Valor da primeira carta do monte a ser movido
+	 * @return Lista de cartas puxadas*/
+	public ArrayList<Carta> puxarAPartirDeCarta(int valor){
+		Carta primeira = getCartaByValor(valor);
+		ArrayList<Carta> result = new ArrayList<>();
+		
+		if (primeira == null) return result;
+		
+		Carta carta = puxarCartaTopo();
+		while (carta != null && carta.compareTo(primeira) != 0 ) {
+			result.add(0,carta);
+			carta = puxarCartaTopo();
+		}
+		
+		result.add(0,primeira);
+		return result;
 	}
 	
 	/**Checar se Pilha está vazia.

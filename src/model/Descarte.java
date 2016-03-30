@@ -13,9 +13,7 @@ public class Descarte extends Pilha {
 	
 	@Override
 	protected boolean verificarCarta(Carta carta) {
-		if (!carta.isParaCima()) return false;
-		
-		return true;
+		return false;
 	}
 
 }

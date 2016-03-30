@@ -1,5 +1,6 @@
 package model;
 
+
 import util.Carta;
 
 /**Representa uma Pilha de Fundação do jogo Paciência. 
