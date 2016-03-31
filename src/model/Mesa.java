@@ -5,17 +5,26 @@ import java.util.ArrayList;
 import config.Configuracao;
 import util.Baralho;
 import util.Carta;
+import util.Observable;
+import util.Observer;
 
 
 /**Representa uma mesa do jogo Paciência, com pilhas e funções
  * de movimentação para as cartas nas pilhas.*/
-public class Mesa {
+public class Mesa implements Observable {
 
 	/**Pilhas de cartas*/
 	private ArrayList<Pilha> pilhas;
 	
 	/**Quantidade inicial do estoque*/
 	private static final int QTD_ESTOQUE_INICIAL = 52-1-2-3-4-5-6-7; //Quantidade de cartas do estoque inicialmente é igual a 52 menos as cartas das fileiras
+	
+	public enum GameStatus {
+		VENCIDO, JOGANDO, IMPASSE;
+	};
+	
+	private Verificador verificador = new Verificador();
+	private ArrayList<Observer> observers = new ArrayList<>();
 	
 	/**Gera as pilhas de acordo com as regras do jogo.
 	 * @param baralho	Fonte de cartas para construir Estoque e Fileiras*/
@@ -56,7 +65,6 @@ public class Mesa {
 			}	
 			
 			estoque.inserirCartas(cartasPassadas);
-			return;
 			
 		} else {
 			
@@ -66,8 +74,10 @@ public class Mesa {
 			}
 			
 			descarte.inserirCartas(cartasPassadas);
-			return;
 		}
+		
+		notifyAllObservers();
+		return;
 	}
 	
 	
@@ -80,6 +90,8 @@ public class Mesa {
 		Carta topo = fileira.cartaTopo();
 		
 		if (!topo.isParaCima()) topo.virarCarta();
+		
+		notifyAllObservers();
 	}
 	
 	/**Move uma carta do topo de uma pilha para outra.
@@ -94,7 +106,10 @@ public class Mesa {
 		
 		if (cartaPuxada == null) return false;
 		
-		if (destino.receberCarta(cartaPuxada)) return true;
+		if (destino.receberCarta(cartaPuxada)) {
+			notifyAllObservers();
+			return true;
+		}
 		else {
 			fonte.inserirCarta(cartaPuxada);
 			return false;
@@ -114,11 +129,18 @@ public class Mesa {
 		
 		if (cartasPuxadas == null || cartasPuxadas.size() <= 0) return false;
 		
-		if (destino.receberCartas(cartasPuxadas)) return true;
+		if (destino.receberCartas(cartasPuxadas)) {
+			notifyAllObservers();
+			return true;
+		}
 		else {
 			fonte.inserirCartas(cartasPuxadas);
 			return false;
 		}
+	}
+	
+	public GameStatus getGameStatus() {
+		return verificador.verificarSituacao();
 	}
 
 	public Pilha getEstoque() {
@@ -154,5 +176,95 @@ public class Mesa {
 		}
 		
 		return sb.toString();
+	}
+
+	@Override
+	public void addObserver(Observer o) {
+		observers.add(o);
+	}
+
+	@Override
+	public void removeObserver(Observer o) {
+		observers.remove(o);
+	}
+
+	@Override
+	public void notifyAllObservers() {
+		for (Observer observer: observers) {
+			observer.update();
+		}
+	}
+	
+	private class Verificador {
+		
+		public GameStatus verificarSituacao() {
+			if (verificarJogoVencido()) return GameStatus.VENCIDO;
+			else if (verificarImpasse()) return GameStatus.IMPASSE;
+			else return GameStatus.JOGANDO;
+		}
+		
+		public boolean verificarJogoVencido() {
+			for (int i = 0; i < 4; i++) {
+				Pilha fundacao = getFundacao(i);
+				if (!fundacao.cartaTopo().isMaiorValor()) return false;
+			}
+			return true;
+		}
+		
+		public boolean verificarImpasse() {
+			//TODO
+			Pilha estoque = getEstoque();
+			Pilha descarte = getDescarte();
+			boolean impasse = true;
+			
+			for (int i = 0; i < estoque.cartas.size(); i++) {
+				Carta carta = estoque.cartas.get(i);
+				carta.virarCarta();
+				for (int j = 0; j < 7; j++) {
+					Pilha fileira = getFileira(j);
+					if (fileira.verificarCarta(carta)) impasse = false;
+				}
+				for (int k = 0; k < 4; k++) {
+					Pilha fundacao = getFundacao(k);
+					if (fundacao.verificarCarta(carta)) impasse = false;
+				}
+				carta.virarCarta();
+				if (!impasse) break;
+			}
+			
+			for (int i = 0; i < descarte.cartas.size(); i++) {
+				Carta carta = descarte.cartas.get(i);
+				for (int j = 0; j < 7; j++) {
+					Pilha fileira = getFileira(j);
+					if (fileira.verificarCarta(carta)) impasse = false;
+				}
+				for (int k = 0; k < 4; k++) {
+					Pilha fundacao = getFundacao(k);
+					if (fundacao.verificarCarta(carta)) impasse = false;
+				}
+				if (!impasse) break;
+			}
+			
+			for (int i = 0; i < 7; i++) {
+				Pilha fileira = getFileira(i);
+				Carta carta = fileira.cartaTopo();
+				if (!carta.isParaCima()) {
+					carta.virarCarta();
+					for (int j = 0; j < 4; j++) {
+						Pilha fundacao = getFundacao(j);
+						if (fundacao.verificarCarta(carta)) impasse = false;
+					}
+					carta.virarCarta();
+				} else {
+					for (int j = 0; j < 4; j++) {
+						Pilha fundacao = getFundacao(j);
+						if (fundacao.verificarCarta(carta)) impasse = false;
+					}
+				}
+				if (!impasse) break;
+			}
+		
+			return impasse;
+		}
 	}
 }
