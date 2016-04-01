@@ -106,14 +106,16 @@ public class Mesa implements Observable {
 		
 		if (cartaPuxada == null) return false;
 		
-		if (destino.receberCarta(cartaPuxada)) {
-			notifyAllObservers();
-			return true;
-		}
+		boolean res = false;
+		
+		if (destino.receberCarta(cartaPuxada)) res = true;
 		else {
 			fonte.inserirCarta(cartaPuxada);
-			return false;
+			res = false;
 		}
+		
+		notifyAllObservers();
+		return res;
 	}
 	
 	/**Move várias cartas de uma pilha para outra a partir de uma carta de referência.
@@ -129,14 +131,20 @@ public class Mesa implements Observable {
 		
 		if (cartasPuxadas == null || cartasPuxadas.size() <= 0) return false;
 		
-		if (destino.receberCartas(cartasPuxadas)) {
-			notifyAllObservers();
-			return true;
-		}
+		boolean res = false;
+		
+		if (destino.receberCartas(cartasPuxadas)) res = true;
 		else {
 			fonte.inserirCartas(cartasPuxadas);
-			return false;
+			res = false;
 		}
+		
+		notifyAllObservers();
+		return res;
+	}
+	
+	public boolean verificarVencedor() {
+		return verificador.verificarJogoVencido();
 	}
 	
 	public GameStatus getGameStatus() {
@@ -161,6 +169,10 @@ public class Mesa implements Observable {
 	
 	public Pilha getPilha(int index) {
 		return pilhas.get(index-1);
+	}
+	
+	public ArrayList<Pilha> getPilhas(){
+		return pilhas;
 	}
 	
 	public String toString() {
@@ -206,7 +218,9 @@ public class Mesa implements Observable {
 		public boolean verificarJogoVencido() {
 			for (int i = 0; i < 4; i++) {
 				Pilha fundacao = getFundacao(i);
-				if (!fundacao.cartaTopo().isMaiorValor()) return false;
+				Carta topo = fundacao.cartaTopo();
+				if (topo == null) return false;
+				if (!topo.isMaiorValor()) return false;
 			}
 			return true;
 		}

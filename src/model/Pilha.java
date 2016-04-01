@@ -109,6 +109,15 @@ public abstract class Pilha {
 		return cartas.isEmpty();
 	}
 	
+	public Carta[] getCartas() {
+		Object[] obs = cartas.toArray();
+		Carta[] cards = new Carta[obs.length];
+		
+		for (int i = 0; i < obs.length; i++) cards[i] = (Carta)obs[i];
+			
+		return cards;
+	}
+	
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		boolean first = true;
