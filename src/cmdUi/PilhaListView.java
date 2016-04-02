@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import model.Pilha;
 import util.Carta;
 
+/**Cuida da visualização das pilhas em linha de comando*/
 public class PilhaListView {
 
 	private ArrayList<Pilha> pilhas;

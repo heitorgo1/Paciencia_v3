@@ -11,12 +11,6 @@ import util.Carta;
 import util.Naipe;
 
 public class MesaTest {
-
-	@Test
-	public void test() {
-		Mesa mesa = new Mesa(new Baralho());
-		System.out.println(mesa);
-	}
 	
 	public void quantidadeCartasTest(Pilha pilha, int quantidade) {
 		assertEquals(pilha.getClass().getName()+" deveria possuir "+quantidade+" carta(s)", quantidade, pilha.cartas.size());

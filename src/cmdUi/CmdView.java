@@ -5,9 +5,13 @@ import cmdUi.menu.AbstractMenu;
 import cmdUi.menu.MainMenu;
 import util.View;
 
+/**Cuida do controle entre qual tela de menu deve ser mostrada a cada momento.*/
 public class CmdView implements View{
 
+	/**Controller do jogo Paciência*/
 	private Controller con;
+	
+	/**Tela atual com menu*/
 	private AbstractMenu currentMenu;
 	
 	public CmdView() {
@@ -15,6 +19,7 @@ public class CmdView implements View{
 		currentMenu = new MainMenu(con,5,null);
 	}
 	
+	/**Inicia o loop onde a tela é desenhada, o sistema espera uma entrada, e logo depois, realiza uma ação.*/
 	public void start() {
 		
 		while (true) {
@@ -25,6 +30,5 @@ public class CmdView implements View{
 	}
 
 	@Override
-	public void drawOnScreen() {
-	}
+	public void drawOnScreen() {}
 }

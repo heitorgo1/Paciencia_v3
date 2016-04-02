@@ -19,11 +19,14 @@ public class Mesa implements Observable {
 	/**Quantidade inicial do estoque*/
 	private static final int QTD_ESTOQUE_INICIAL = 52-1-2-3-4-5-6-7; //Quantidade de cartas do estoque inicialmente é igual a 52 menos as cartas das fileiras
 	
+	/**Estados do possíveis de um jogo de Paciência*/
 	public enum GameStatus {
 		VENCIDO, JOGANDO, IMPASSE;
 	};
 	
 	private Verificador verificador = new Verificador();
+	
+	/**Observadores dessa classe*/
 	private ArrayList<Observer> observers = new ArrayList<>();
 	
 	/**Gera as pilhas de acordo com as regras do jogo.
@@ -203,13 +206,18 @@ public class Mesa implements Observable {
 		}
 	}
 	
+	/**Classe que faz verificações sobre o estado do jogo*/
 	private class Verificador {
 		
+		/**Verifica a situação do jogo.
+		 * @return Estado do jogo*/
 		public GameStatus verificarSituacao() {
 			if (verificarJogoVencido()) return GameStatus.VENCIDO;
 			else return GameStatus.JOGANDO;
 		}
 		
+		/**Verifica se o jogador já venceu a partida.
+		 * @return Booleano representando se o jogador já venceu ou não*/
 		private boolean verificarJogoVencido() {
 			for (int i = 0; i < 4; i++) {
 				Pilha fundacao = getFundacao(i);

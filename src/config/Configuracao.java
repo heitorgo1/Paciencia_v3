@@ -1,10 +1,13 @@
 package config;
 
+/**Configurações gerais do jogo.
+ * Padrão Singleton*/
 public class Configuracao {
 
 	public static final int PUXAR_UMA_CARTA = 0;
 	public static final int PUXAR_TRES_CARTAS = 1;
 	
+	/**Representa o modo como as cartas serão puxadas do estoque*/
 	private int modoPuxarCartasEstoque; 
 	
 	private static Configuracao config = null;
