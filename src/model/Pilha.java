@@ -77,9 +77,9 @@ public abstract class Pilha {
 		else return null;
 	}
 	
-	private Carta getCartaByValor(int valor) {
+	private Carta getCartaParaCimaByValor(int valor) {
 		for (Carta carta: cartas) {
-			if (carta.getValor() == valor) return carta;
+			if (carta.getValor() == valor && carta.isParaCima()) return carta;
 		}
 		return null;
 	}
@@ -88,7 +88,7 @@ public abstract class Pilha {
 	 * @param valor		Valor da primeira carta do monte a ser movido
 	 * @return Lista de cartas puxadas*/
 	public ArrayList<Carta> puxarAPartirDeCarta(int valor){
-		Carta primeira = getCartaByValor(valor);
+		Carta primeira = getCartaParaCimaByValor(valor);
 		ArrayList<Carta> result = new ArrayList<>();
 		
 		if (primeira == null) return result;
