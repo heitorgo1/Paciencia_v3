@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import config.Configuracao;
 import model.Mesa;
+import model.Mesa.GameStatus;
 import model.Pilha;
 import util.Baralho;
 import util.Observer;
@@ -33,7 +34,7 @@ public class Controller implements Observer{
 	}
 	
 	public boolean isVencedor() {
-		return mesa.verificarVencedor();
+		return mesa.getGameStatus()==GameStatus.VENCIDO;
 	}
 	
 	public void virarCartaFileira(int index) {

@@ -1,5 +1,7 @@
 package cmdUi;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Scanner;
 
 import Controller.Controller;
@@ -25,6 +27,8 @@ public class CmdView implements View{
 		
 		drawOnScreen();
 		
+		Instant start = Instant.now();
+		
 		while (inGame) {
 			if (con.isVencedor()) {
 				Main.print("\n\nPARABENS, VOCE VENCEU!\n\n");
@@ -32,6 +36,15 @@ public class CmdView implements View{
 			}
 			getInput();
 		}
+		
+		Instant end = Instant.now();
+		
+		
+		Duration duration = Duration.between(start, end);
+		long minutes = duration.toMinutes();
+		long seconds = duration.getSeconds()%60;
+		
+		Main.print("\n\nTempo de jogo: "+minutes+" minutos e "+seconds+" segundos.\n\n");
 	}
 	
 	public void drawMainMenu() {

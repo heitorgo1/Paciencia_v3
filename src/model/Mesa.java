@@ -143,10 +143,6 @@ public class Mesa implements Observable {
 		return res;
 	}
 	
-	public boolean verificarVencedor() {
-		return verificador.verificarJogoVencido();
-	}
-	
 	public GameStatus getGameStatus() {
 		return verificador.verificarSituacao();
 	}
@@ -211,11 +207,10 @@ public class Mesa implements Observable {
 		
 		public GameStatus verificarSituacao() {
 			if (verificarJogoVencido()) return GameStatus.VENCIDO;
-			else if (verificarImpasse()) return GameStatus.IMPASSE;
 			else return GameStatus.JOGANDO;
 		}
 		
-		public boolean verificarJogoVencido() {
+		private boolean verificarJogoVencido() {
 			for (int i = 0; i < 4; i++) {
 				Pilha fundacao = getFundacao(i);
 				Carta topo = fundacao.cartaTopo();
@@ -224,61 +219,6 @@ public class Mesa implements Observable {
 			}
 			return true;
 		}
-		
-		public boolean verificarImpasse() {
-			//TODO
-			Pilha estoque = getEstoque();
-			Pilha descarte = getDescarte();
-			boolean impasse = true;
-			
-			for (int i = 0; i < estoque.cartas.size(); i++) {
-				Carta carta = estoque.cartas.get(i);
-				carta.virarCarta();
-				for (int j = 0; j < 7; j++) {
-					Pilha fileira = getFileira(j);
-					if (fileira.verificarCarta(carta)) impasse = false;
-				}
-				for (int k = 0; k < 4; k++) {
-					Pilha fundacao = getFundacao(k);
-					if (fundacao.verificarCarta(carta)) impasse = false;
-				}
-				carta.virarCarta();
-				if (!impasse) break;
-			}
-			
-			for (int i = 0; i < descarte.cartas.size(); i++) {
-				Carta carta = descarte.cartas.get(i);
-				for (int j = 0; j < 7; j++) {
-					Pilha fileira = getFileira(j);
-					if (fileira.verificarCarta(carta)) impasse = false;
-				}
-				for (int k = 0; k < 4; k++) {
-					Pilha fundacao = getFundacao(k);
-					if (fundacao.verificarCarta(carta)) impasse = false;
-				}
-				if (!impasse) break;
-			}
-			
-			for (int i = 0; i < 7; i++) {
-				Pilha fileira = getFileira(i);
-				Carta carta = fileira.cartaTopo();
-				if (!carta.isParaCima()) {
-					carta.virarCarta();
-					for (int j = 0; j < 4; j++) {
-						Pilha fundacao = getFundacao(j);
-						if (fundacao.verificarCarta(carta)) impasse = false;
-					}
-					carta.virarCarta();
-				} else {
-					for (int j = 0; j < 4; j++) {
-						Pilha fundacao = getFundacao(j);
-						if (fundacao.verificarCarta(carta)) impasse = false;
-					}
-				}
-				if (!impasse) break;
-			}
-		
-			return impasse;
-		}
+
 	}
 }
