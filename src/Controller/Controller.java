@@ -1,5 +1,7 @@
 package Controller;
 
+import java.time.Duration;
+import java.time.Instant;
 import java.util.ArrayList;
 
 import config.Configuracao;
@@ -14,6 +16,8 @@ public class Controller implements Observer{
 
 	private Mesa mesa;
 	private View view;
+	private Instant start;
+	private Instant end;
 	
 	public Controller(View view) {
 		this.view = view;
@@ -21,6 +25,7 @@ public class Controller implements Observer{
 	}
 	
 	public void iniciarJogo() {
+		start = Instant.now();
 		mesa = new Mesa(new Baralho(true));
 		mesa.addObserver(this);
 	}
@@ -34,7 +39,11 @@ public class Controller implements Observer{
 	}
 	
 	public boolean isVencedor() {
-		return mesa.getGameStatus()==GameStatus.VENCIDO;
+		boolean res = mesa.getGameStatus()==GameStatus.VENCIDO;
+		if (res) {
+			end = Instant.now();
+		}
+		return res;
 	}
 	
 	public void virarCartaFileira(int index) {
@@ -59,6 +68,10 @@ public class Controller implements Observer{
 	
 	public ArrayList<Pilha> getPilhas() {
 		return mesa.getPilhas();
+	}
+	
+	public Duration gameDuration() {
+		return Duration.between(start, end);
 	}
 	
 	

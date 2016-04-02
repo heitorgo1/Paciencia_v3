@@ -12,6 +12,10 @@ public class PilhaListView {
 	public PilhaListView (ArrayList<Pilha> pilhas) {
 		this.pilhas = pilhas;
 	}
+	
+	public void setPilhas(ArrayList<Pilha> pilhas) {
+		this.pilhas = pilhas;
+	}
 
 	public void drawPilhas() {
 		
