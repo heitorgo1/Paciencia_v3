@@ -32,7 +32,7 @@
 		</jar>
 	</target>
 
-	<target name="test" depends="main">
+	<target name="testa" depends="main">
 		<mkdir dir="testResults"/>
 		<mkdir dir="${testClasses}"/>
 		<javac classpath="lib/junit.jar;${jar}/${ant.project.name}.jar" encoding="UTF-8" includeantruntime="false" srcdir="${test}" destdir="${testClasses}"/>
