@@ -85,7 +85,7 @@ public class Mesa implements Observable {
 	
 	
 	/**Vira a carta do topo de uma Fileira caso ela esteja virada para baixo.
-	 * @parma index		Index da fileira escolhida*/
+	 * @param index		Index da fileira escolhida*/
 	public void virarCartaFileira(int index) {
 		
 		Pilha fileira = getFileira(index);

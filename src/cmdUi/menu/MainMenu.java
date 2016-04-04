@@ -19,9 +19,9 @@ public class MainMenu extends AbstractMenu {
 	public void draw() {
 		
 		if (con.isVencedor()){
-			Main.print("\n\n PARABÉNS! VOCÊ VENCEU!!! \n\n");
+			Main.print("\n\nPARABÉNS! VOCÊ VENCEU!!! \n\n");
 			Duration time = con.gameDuration();
-			Main.print("\n\n Tempo de jogo: "+time.toMinutes()+" minutos e "+time.getSeconds()%60+" segundos.\n\n");
+			Main.print("\n\nTempo de jogo: "+time.toMinutes()+" minutos e "+time.getSeconds()%60+" segundos.\n\n");
 			con.finalizar();
 			return;
 		}

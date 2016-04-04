@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="meupca" name="TesteGeral" skipped="0" tests="33" time="0.085" timestamp="2016-04-04T01:10:45">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="docdest" value="C:\Users\Heitor\git\Paciencia_v3\javadoc" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="lib" value="C:\Users\Heitor\git\Paciencia_v3\lib" />
+    <property name="os.name" value="Windows 8.1" />
+    <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_45\jre\classes" />
+    <property name="user.country.format" value="BR" />
+    <property name="sun.desktop" value="windows" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="C:\eclipse\apache-ant-1.9.6\bin\.." />
+    <property name="java.runtime.version" value="1.8.0_45-b15" />
+    <property name="user.name" value="Heitor" />
+    <property name="user.language.format" value="pt" />
+    <property name="testClasses" value="C:\Users\Heitor\git\Paciencia_v3\bin\testClasses" />
+    <property name="user.language" value="en" />
+    <property name="build" value="C:\Users\Heitor\git\Paciencia_v3\bin" />
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_45\jre\bin" />
+    <property name="ant.project.default-target" value="main" />
+    <property name="ant.project.name" value="Paciencia_v3" />
+    <property name="java.version" value="1.8.0_45" />
+    <property name="user.timezone" value="America/Bahia" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\endorsed" />
+    <property name="jar" value="C:\Users\Heitor\git\Paciencia_v3\bin\jar" />
+    <property name="sun.cpu.isalist" value="amd64" />
+    <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="\" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="src" value="C:\Users\Heitor\git\Paciencia_v3\src" />
+    <property name="user.country" value="GB" />
+    <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_45\jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="main-class" value="cmdUi.Main" />
+    <property name="ant.file" value="C:\Users\Heitor\git\Paciencia_v3\build.xml" />
+    <property name="os.version" value="6.3" />
+    <property name="srcClasses" value="C:\Users\Heitor\git\Paciencia_v3\bin\srcClasses" />
+    <property name="path.separator" value=";" />
+    <property name="java.vm.version" value="25.45-b02" />
+    <property name="user.variant" value="" />
+    <property name="ant.library.dir" value="C:\eclipse\apache-ant-1.9.6\lib" />
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
+    <property name="sun.stdout.encoding" value="cp850" />
+    <property name="user.script" value="" />
+    <property name="user.home" value="C:\Users\Heitor" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test" value="C:\Users\Heitor\git\Paciencia_v3\test" />
+    <property name="java.library.path" value="C:\Program Files\Java\jdk1.8.0_45\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\AMD APP\bin\x86_64;C:\Program Files (x86)\AMD APP\bin\x86;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Windows Live\Shared;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\Java\jdk1.8.0_45\bin;C:\MinGW\bin;C:\Users\Heitor\.dnx\bin;C:\Program Files\Microsoft DNX\Dnvm\;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\eclipse\apache-ant-1.9.6\bin;;C:\Program Files (x86)\Microsoft VS Code\bin;." />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.launch.Launcher test" />
+    <property name="java.class.path" value="C:\eclipse\apache-ant-1.9.6\bin\..\lib\ant-launcher.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-antlr.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-bcel.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-bsf.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-log4j.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-oro.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-regexp.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-resolver.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-apache-xalan2.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-commons-logging.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-commons-net.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-jai.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-javamail.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-jdepend.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-jmf.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-jsch.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-junit.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-junit4.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-launcher.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-netrexx.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-swing.jar;C:\eclipse\apache-ant-1.9.6\lib\ant-testutil.jar;C:\eclipse\apache-ant-1.9.6\lib\ant.jar;C:\Program Files\Java\jdk1.8.0_45\lib\tools.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.9.6 compiled on June 29 2015" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="ant.file.Paciencia_v3" value="C:\Users\Heitor\git\Paciencia_v3\build.xml" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="" />
+    <property name="ant.file.type.Paciencia_v3" value="file" />
+    <property name="java.io.tmpdir" value="C:\Users\Heitor\AppData\Local\Temp\" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_45\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext" />
+    <property name="user.dir" value="C:\Users\Heitor\git\Paciencia_v3" />
+    <property name="line.separator" value="&#xd;&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="C:\Users\Heitor\git\Paciencia_v3" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="C:\eclipse\apache-ant-1.9.6\lib\ant.jar" />
+    <property name="file.encoding" value="Cp1252" />
+    <property name="sun.stderr.encoding" value="cp850" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="ant.project.invoked-targets" value="test" />
+  </properties>
+  <testcase classname="util.CartaTest" name="cartaVermelhaTest" time="0.012" />
+  <testcase classname="util.CartaTest" name="cartaParaBaixoTest" time="0.001" />
+  <testcase classname="util.CartaTest" name="cartaParaCimaTest" time="0.0" />
+  <testcase classname="util.CartaTest" name="cartaMaiorValorKTest" time="0.0" />
+  <testcase classname="util.CartaTest" name="cartaParaBaixoStringTest" time="0.0" />
+  <testcase classname="util.CartaTest" name="cartaMenorValorASTest" time="0.0" />
+  <testcase classname="util.CartaTest" name="cartaParaCimaStringTest" time="0.001" />
+  <testcase classname="util.CartaTest" name="cartaPretaTest" time="0.0" />
+  <testcase classname="util.BaralhoTest" name="puxarTodasAsCartasTest" time="0.001" />
+  <testcase classname="util.BaralhoTest" name="puxarMaisDe52CartasTopoTest" time="0.0" />
+  <testcase classname="util.BaralhoTest" name="baralhoVazioTest" time="0.001" />
+  <testcase classname="util.BaralhoTest" name="cartaTopoReiTest" time="0.0" />
+  <testcase classname="util.BaralhoTest" name="puxarTresCartasTopoTest" time="0.0" />
+  <testcase classname="util.BaralhoTest" name="baralhoNaoVazioTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberCartaFileiraFalseTest" time="0.001" />
+  <testcase classname="model.PilhaTest" name="receberCartaDescarteTest" time="0.001" />
+  <testcase classname="model.PilhaTest" name="receberMultiplasCartasFileiraTrueTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberCartaFundacaoFalseTest" time="0.001" />
+  <testcase classname="model.PilhaTest" name="pilhaVaziaTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberMultiplasCartasFundacaoTrueTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberMultiplasCartasFundacaoFalseTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberCartaFileiraTrueTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberMultiplasCartasFileiraFalseTest" time="0.0" />
+  <testcase classname="model.PilhaTest" name="receberCartaFundacaoTrueTest" time="0.001" />
+  <testcase classname="model.MesaTest" name="virarTodasAsCartasEstoqueTest" time="0.003" />
+  <testcase classname="model.MesaTest" name="moverCartaFileiraFundacaoTest" time="0.001" />
+  <testcase classname="model.MesaTest" name="virarCartaEstoqueTest" time="0.0" />
+  <testcase classname="model.MesaTest" name="moverCartaDescarteFileiraTest" time="0.0" />
+  <testcase classname="model.MesaTest" name="moverMultiplasCartasFileiraTest" time="0.001" />
+  <testcase classname="model.MesaTest" name="moverCartaDescarteFundacaoTest" time="0.0" />
+  <testcase classname="model.MesaTest" name="moverCartaFundacaoFileiraTest" time="0.0" />
+  <testcase classname="model.VerificadorTest" name="verificarJogoNaoVencidoTest" time="0.002" />
+  <testcase classname="model.VerificadorTest" name="verificarJogoVencidoTest" time="0.0" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!DOCTYPE project>
+<project name="Paciencia_v3" default="main" basedir=".">
+
+	<property name="src" location="src"/>
+	<property name="lib"  location="lib"/>
+	<property name="test" location="test"/>
+	<property name="build" location="bin"/>
+	<property name="srcClasses" location="${build}/srcClasses"/>
+	<property name="testClasses" location="${build}/testClasses"/>
+	<property name="jar" location="${build}/jar"/>
+	<property name="main-class" value="cmdUi.Main"/>
+	<property name="docdest" location="javadoc"/>
+
+	<path id="classpath">
+		<fileset dir="${lib}" includes="**/*.jar"/>
+	</path>
+	<path id="application" location="${jar}/${ant.project.name}.jar"/>
+
+
+	<target name="compila">
+		<mkdir dir="${build}/srcClasses"/>
+		<javac encoding="UTF-8" includeantruntime="false" srcdir="${src}" destdir="${build}/srcClasses"/>
+	</target>
+
+	<target name="jar" depends="compila">
+		<mkdir dir="${jar}"/>
+		<jar destfile="${jar}/${ant.project.name}.jar" basedir="${srcClasses}">
+			<manifest>
+				<attribute name="Main-Class" value="${main-class}"/>
+			</manifest>
+		</jar>
+	</target>
+
+	<target name="test" depends="main">
+		<mkdir dir="testResults"/>
+		<mkdir dir="${testClasses}"/>
+		<javac classpath="lib/junit.jar;${jar}/${ant.project.name}.jar" encoding="UTF-8" includeantruntime="false" srcdir="${test}" destdir="${testClasses}"/>
+		<junit printsummary="yes" haltonfailure="no">
+
+			<!-- Project classpath, must include junit.jar -->
+			<classpath refid="classpath" />
+				
+			<!-- test class -->
+			<classpath location="${srcClasses}" />
+			<classpath location="${testClasses}" />
+				
+			<test name="TesteGeral" 
+				haltonfailure="no" todir="testResults">
+				<formatter type="plain" />
+				<formatter type="xml" />
+			</test>
+			</junit>
+	</target>
+
+	<target name="limpa">
+		<delete dir="${build}" />
+	</target>
+
+	<target name="doc" >
+		<mkdir dir="${docdest}"/>
+		<javadoc encoding="UTF-8" charset="UTF-8" docencoding="UTF-8" sourcepath="${src}" destdir="${docdest}"/>
+	</target>
+
+	<target name="run" depends="jar">
+		<java jar="${jar}/${ant.project.name}.jar" fork="true"/>
+	</target>
+
+	<target name="main" depends="limpa,compila,jar">
+	</target>
+</project>

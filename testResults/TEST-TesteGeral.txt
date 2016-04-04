@@ -1,0 +1,36 @@
+Testsuite: TesteGeral
+Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0,085 sec
+
+Testcase: cartaVermelhaTest took 0,009 sec
+Testcase: cartaParaBaixoTest took 0,001 sec
+Testcase: cartaParaCimaTest took 0 sec
+Testcase: cartaMaiorValorKTest took 0 sec
+Testcase: cartaParaBaixoStringTest took 0 sec
+Testcase: cartaMenorValorASTest took 0 sec
+Testcase: cartaParaCimaStringTest took 0,001 sec
+Testcase: cartaPretaTest took 0 sec
+Testcase: puxarTodasAsCartasTest took 0,001 sec
+Testcase: puxarMaisDe52CartasTopoTest took 0 sec
+Testcase: baralhoVazioTest took 0,001 sec
+Testcase: cartaTopoReiTest took 0 sec
+Testcase: puxarTresCartasTopoTest took 0 sec
+Testcase: baralhoNaoVazioTest took 0 sec
+Testcase: receberCartaFileiraFalseTest took 0,001 sec
+Testcase: receberCartaDescarteTest took 0,001 sec
+Testcase: receberMultiplasCartasFileiraTrueTest took 0 sec
+Testcase: receberCartaFundacaoFalseTest took 0,001 sec
+Testcase: pilhaVaziaTest took 0 sec
+Testcase: receberMultiplasCartasFundacaoTrueTest took 0 sec
+Testcase: receberMultiplasCartasFundacaoFalseTest took 0 sec
+Testcase: receberCartaFileiraTrueTest took 0 sec
+Testcase: receberMultiplasCartasFileiraFalseTest took 0 sec
+Testcase: receberCartaFundacaoTrueTest took 0 sec
+Testcase: virarTodasAsCartasEstoqueTest took 0,003 sec
+Testcase: moverCartaFileiraFundacaoTest took 0,001 sec
+Testcase: virarCartaEstoqueTest took 0 sec
+Testcase: moverCartaDescarteFileiraTest took 0 sec
+Testcase: moverMultiplasCartasFileiraTest took 0,001 sec
+Testcase: moverCartaDescarteFundacaoTest took 0 sec
+Testcase: moverCartaFundacaoFileiraTest took 0 sec
+Testcase: verificarJogoNaoVencidoTest took 0,001 sec
+Testcase: verificarJogoVencidoTest took 0 sec
